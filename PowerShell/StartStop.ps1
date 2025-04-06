@@ -12,14 +12,7 @@ param (
 )
 
 
-# Check if script is running as administrator
-if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(`
-    [Security.Principal.WindowsBuiltInRole] "Administrator"))
-{
-    Write-Host "Not running as Administrator. Relaunching as Admin..."
-    Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    exit
-}
+
 
 
 $serviceName = "js7_agent_4445"
